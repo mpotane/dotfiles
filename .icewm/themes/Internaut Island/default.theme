@@ -1,0 +1,76 @@
+# Internaut Island for KDE2 by freakone@firemail.de
+
+
+ThemeDescription="Internaut Island (kwin)"
+ThemeAuthor="freakone@firemail.de"
+Look=pixmap
+
+TitleButtonsLeft="s"
+TitleButtonsRight="xmid"
+TitleButtonsSupported="sxmidr"
+TitleBarCentered=0
+TitleBarHeight=20
+
+BorderSizeX=3
+BorderSizeY=3
+CornerSizeX=20
+CornerSizeY=20
+
+ColorNormalTitleBar="#000000"
+ColorNormalTitleBarText="#865519"
+ColorActiveTitleBar="#000000"
+ColorActiveTitleBarText="#ffffff"
+ColorActiveTitleBarShadow="#0f4600"
+
+ColorActiveBorder="#000000"
+ColorNormalBorder="#000000"
+
+ShowMenuButtonIcon=1
+
+
+
+
+
+#Taskbar
+ColorDefaultTaskBar=             "rgb:ea/d9/7a" #no tabs
+ColorToolButton=                 "rgb:ea/d9/7a" #left
+ColorActiveButton=               "rgb:ea/d9/7a"
+ColorNormalButton=               "rgb:91/5c/2b"
+ColorToolButtonText=             "rgb:f/f/f"
+ColorNormalWorkspaceButtonText=  "rgb:94/6a/12"
+ColorActiveWorkspaceButtonText=  "rgb:ea/d9/7a"
+ColorNormalButtonText=           "rgb:ea/d9/7a"
+ColorActiveButtonText=           "rgb:91/5c/2b"
+ColorActiveTaskBarApp=           "rgb:a9/6d/37"
+ColorActiveTaskBarAppText=       "rgb:ea/d9/7a"
+ColorMinimizedTaskBarApp=        "rgb:91/5c/2b"
+ColorMinimizedTaskBarAppText=    "rgb:ea/d9/7a"
+ColorNormalTaskBarApp=           "rgb:91/5c/2b"
+ColorNormalTaskBarAppText=       "rgb:ea/d9/7a"
+ColorInvisibleTaskBarAppText=    "rgb:ea/d9/7a"
+
+
+#Menu
+ColorActiveMenu=                 "rgb:c8/89/02"
+ColorActiveMenuItem=             "rgb:7e/45/16"
+ColorActiveMenuItemText=         "rgb:ea/d9/7a"
+ColorNormalMenu=                 "rgb:97/5c/2d"
+ColorNormalMenuItem=             "rgb:e2/c2/7d"
+ColorNormalMenuItemText=         "rgb:c5/ba/7f"
+ColorDisabledMenuItemText=       "rgb:a6/99/7a"
+ColorDisabledMenuItemShadow=     "rgb:89/57/2e"
+
+
+#Move
+ColorMoveSizeStatus=             "rgb:ea/d9/7a"
+
+
+#Fonts
+TitleFontNameXft=                "sans-serif:size=8:bold"
+StatusFontNameXft=               "sans-serif:size=8:bold"
+MenuFontNameXft=                 "sans-serif:size=8:bold"
+NormalTaskBarFontNameXft=        "sans-serif:size=8:bold"
+ActiveTaskBarFontNameXft=        "sans-serif:size=8:bold"
+ListBoxFontNameXft=              "sans-serif:size=8:bold"
+ToolTipFontNameXft=              "sans-serif:size=8:bold"
+QuickSwitchFontNameXft=          "sans-serif:size=8:bold"

@@ -1,0 +1,62 @@
+menu "Development" folder {
+    prog "CMake curses GUI (ccmake)" - xterm -e ccmake
+    prog "Geany" - geany
+    prog "IDLE (Python IDE)" - idle
+    prog "Python" - xterm -e python
+    prog "Python (v2.7)" - xterm -e python2.7
+    prog "Qt4 Assistant" - assistant
+    prog "Qt4 Designer" - designer
+    prog "Qt4 Linguist" - linguist
+    prog "Tclsh8.6" - xterm -e tclsh8.6
+}
+menu "Editors" folder {
+    prog "Nano" - xterm -e nano
+}
+menu "Games" folder {
+    menu "Amusement" folder {
+        prog "bb" - bb
+    }
+}
+menu "Graphics" folder {
+    prog "MuPDF" - mupdf
+}
+menu "Multimedia" folder {
+    prog "ALSA mixer" - xterm -e alsamixer
+}
+menu "Network" folder {
+    prog "Google Chrome" - google-chrome-stable
+    prog "Mail Reader" - exo-open --launch MailReader
+    prog "TkVNC" - xterm -e tkvnc
+    prog "W3m" - xterm -e w3m
+    prog "Web Browser" - exo-open --launch WebBrowser
+    prog "wpa_gui" - wpa_gui
+}
+menu "Science" folder {
+    prog "bc" - xterm -e bc
+    prog "dc" - xterm -e dc
+}
+menu "Shells" folder {
+    prog "GIT" - xterm -e git
+    prog "rc" - xterm -e rc
+    prog "UXTerm" - uxterm
+    prog "Xterm" - xterm
+}
+menu "System" folder {
+    menu "Settings" folder {
+        prog "Manage Printing" - xdg-open http://localhost:631/
+        prog "Preferred Applications" - exo-preferred-applications
+    }
+    prog "chronyc" - xterm -e chronyc
+    prog "Laptop Mode Tools Configuration" - lmt-config-gui-pkexec
+    prog "pstree" - xterm -e pstree.x11
+    prog "pstree" - xterm -e pstree
+    prog "pstree" - xterm -e /usr/bin/pstree.x11
+    prog "QtConfig" - qtconfig
+    prog "Top" - xterm -e top
+}
+menu "Utilities" folder {
+    prog "About Xfce" - xfce4-about
+    prog "File Manager" - exo-open --launch FileManager
+    prog "Info" - xterm -e info
+    prog "Terminal Emulator" - exo-open --launch TerminalEmulator
+}
