@@ -1,18 +1,18 @@
 #! /bin/sh
 
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 bspc monitor -d I II III
 
 bspc config border_width         3
-bspc config window_gap           0
+bspc config window_gap           5
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 
-bspc rule -a Chromium:\* state=floating follow=on
+bspc rule -a Google-chrome:\* state=floating desktop='^2' follow=on
 bspc rule -a feh state=floating
 bspc rule -a xdman-Main:\* state=floating
 bspc rule -a Blueman-manager state=floating rectangle=553x302+1339+52
@@ -31,5 +31,9 @@ bspc config presel_feedback_color "#6272a4"
 
 #feh
 ~/.fehbg &
+
+sh $HOME/.config/polybar/launch.sh
+
+picom &
 
 pgrep -x sxhkd > /dev/null || sxhkd &

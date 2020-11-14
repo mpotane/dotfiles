@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	kitty
+	st
 
 # program launcher
 super + @space
-	dmenu_run -h 24 -p "command : " -nb '#282a36' -sb '#854ee4' -fn "MesloLGS NF Regular-8"
+	dmenu_run -s -h 24 -p " " -nb '#282a36' -sb '#854ee4'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -126,7 +126,7 @@ super + {Left,Down,Up,Right}
 #super + F1
 #        /usr/lib/firefox/firefox
 super + F1
-	firefox
+	google-chrome-stable
 
 #
 #open screenshot via imagemagick
@@ -164,10 +164,10 @@ XF86AudioMute
  
 ### Master Volume
 XF86AudioRaiseVolume
-	amixer set Master 2.5%+; 
+	amixer set Headphone 2.5%+; 
  
 XF86AudioLowerVolume
-	amixer set Master 2.5%-; 
+	amixer set Headphone 2.5%-; 
 
 # show time
 super + F3
