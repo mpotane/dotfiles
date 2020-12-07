@@ -2,13 +2,14 @@
 # wm independent hotkeys
 #
 
+
 # terminal emulator
 super + Return
 	st
 
 # program launcher
 super + @space
-	dmenu_run -s -h 24 -p " " -nb '#282a36' -sb '#854ee4'
+	dmenu_run -s -h 20 -p " " -nb '#282a36' -sb '#854ee4'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -169,12 +170,19 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer set Headphone 2.5%-; 
 
+#open geany
+super + F2
+	geany
+
 # show time
-super + F3
-	TIME=$(date +"%d %b %I:%M");dunstctl close-all;notify-send "$TIME" --urgency=normal;
+#super + F3
+#	TIME=$(date +"%d %b %I:%M");dunstctl close-all;notify-send "$TIME" --urgency=normal;
 
 # screenshot select area
 super + F4
 	import Pictures/"screen_$(date +%F-%T).png"
 
 
+# toggle polybar
+super + F3
+	polybar-msg cmd toggle

@@ -31,10 +31,10 @@ alert = #bd2c40
 [bar/dabar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
-;exradius = 6.0
+;radius = 6.0
 fixed-center = false
 
 background = #000f0f0f
@@ -53,8 +53,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hack Nerd Font:pixelsize=10;1
-font-1 = Monoid Nerd Font:size=10:antialias=true:autohint=true
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=8;1
+;font-1 = Monoid Nerd Font:size=10:antialias=true:autohint=true
 
 modules-left = bspwm
 modules-center = 
@@ -66,6 +66,8 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+enable-ipc = true
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
@@ -131,8 +133,10 @@ label-empty-padding = 2
 label-empty-background = #dfdfdf
 
 
+
 #----------------------------------------------------------------
 #----------------------------------------------------------------
+
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -255,10 +259,11 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-underline = #f50a4d
-format-background = #f50a4d
 format-foreground = #ffffff
+format-background = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
+format-warn-background = #ffffff
 
 label = " %temperature-c% "
 label-warn = " %temperature-c% "
