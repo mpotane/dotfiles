@@ -1,10 +1,21 @@
 #!/bin/sh
 
-#start status bar
+export PATH=$PATH:$HOME/.local/bin
+
+sleep 1
 slstatus &
 
-#start feh
+sleep 1
 ~/.fehbg &
 
-#start gnome polkit
-sh $HOME/polkit-gnome.sh
+sleep 1
+xfce4-power-manager &
+
+sleep 1
+/usr/libexec/xfce-polkit &
+
+sleep 1
+pulseaudio -D &
+
+sleep 1
+picom &

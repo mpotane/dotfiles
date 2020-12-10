@@ -35,7 +35,7 @@ height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = #000f0f0f
 
@@ -56,9 +56,9 @@ module-margin-right = 2
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=8;1
 ;font-1 = Monoid Nerd Font:size=10:antialias=true:autohint=true
 
-modules-left = bspwm
-modules-center = 
-modules-right = filesystem xbacklight alsa xkeyboard memory cpu temperature date
+modules-left = bspwm wlan
+modules-center = date
+modules-right = filesystem xbacklight alsa xkeyboard memory cpu temperature
 
 tray-position = right
 tray-padding = 2
@@ -85,7 +85,8 @@ blacklist-0 = num lock
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-background = #f36f4f
+format-foreground = ${colors.primary}
+format-background = #162841
 
 label-layout = "  %layout%"
 
@@ -107,7 +108,8 @@ mount-0 = /
 label-mounted = "  %percentage_used%% "
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-label-mounted-background = #fcff4d
+label-mounted-background = #162841
+label-mounted-foreground = #e32af4
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
@@ -116,22 +118,55 @@ label-mounted-background = #fcff4d
 type = internal/bspwm
 
 label-focused = 
-label-focused-background = ${colors.primary}
+label-focused-background = #162841
+label-focused-foreground = #eaf42a
 label-focused-padding = 2
 
-label-occupied = 
+label-occupied = 
 label-occupied-padding = 2
-label-occupied-background = #ffffff
+label-occupied-foreground = #1856c8
+label-occupied-background = #162841
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = 
-label-empty-foreground = ${colors.foreground-alt}
+label-empty = 
+label-empty-foreground = #f4712a
 label-empty-padding = 2
-label-empty-background = #dfdfdf
+label-empty-background = #162841
 
+
+label-separator = "  "
+
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = " <ramp-signal> <label-connected> "
+;format-connected-underline = #9f78e1
+label-connected = %essid%
+label-connected-foreground = ${colors.primary}
+format-connected-background = #162841
+
+format-disconnected = " 睊"
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
+;ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = #7bf81b
 
 
 #----------------------------------------------------------------
@@ -142,17 +177,17 @@ label-empty-background = #dfdfdf
 type = internal/xbacklight
 
 format = " <label> <bar> "
-label = " "
-format-foreground = #ffffff
+label = " "
+format-foreground = #dfdfdf
 format-background = #162841
 
 bar-width = 10
 bar-indicator = 
-bar-indicator-foreground = #fff
+bar-indicator-foreground = #dfdfdf
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = #19eef5
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
@@ -172,9 +207,8 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = #95f02d
+format-foreground = ${colors.primary}
+format-background = #162841
 label = " %percentage:2%% "
 
 
@@ -185,9 +219,8 @@ label = " %percentage:2%% "
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = #4bffdc
+format-foreground = ${colors.primary}
+format-background = #162841
 label = "  %percentage_used%% "
 
 
@@ -199,14 +232,13 @@ label = "  %percentage_used%% "
 type = internal/date
 interval = 5
 
-date =
-date-alt = "  %Y-%m-%d"
+date = "  %A, %b %d %Y"
+;date-alt = "  %Y-%m-%d"
 
-time = " %I:%M "
+time = "  %I:%M %p "
 
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = #468bec
+format-foreground = ${colors.primary}
+format-background = #162841
 
 
 label = %date% %time%
@@ -222,9 +254,9 @@ label = %date% %time%
 type = internal/alsa
 
 format-volume = "<label-volume> <bar-volume> "
-format-volume-background = #ebc1ca
-label-volume = " "
-label-volume-foreground = ${colors.foreground}
+format-volume-background = #162841
+label-volume = " 奔"
+label-volume-foreground = #ffffff
 
 format-muted-prefix = " ﱝ "
 format-muted-foreground = ${colors.foreground-alt}
@@ -236,10 +268,11 @@ bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
 bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-5 = #f84fbf
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = 
+bar-volume-indicator-foreground = #ffffff
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
@@ -258,11 +291,10 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
-format-foreground = #ffffff
-format-background = #f50a4d
+format-foreground = ${colors.primary}
+format-background = #162841
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = #f50a4d
 format-warn-background = #ffffff
 
 label = " %temperature-c% "
@@ -273,6 +305,9 @@ ramp-0 =
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+
+
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
