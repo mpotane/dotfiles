@@ -50,7 +50,7 @@ command! MakeTags !ctags -R
 " SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+"nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 " NOW WE CAN:
 " - Take over the world!
@@ -58,10 +58,13 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 "FOLDER METHOD
 set foldmethod=marker
+" za - to fold/unfold 
 
 "use ranger instead of netrw
 let g:ranger_replace_netrw = 1
 
+"status
+set laststatus=2
 " }}}
 
 " Plugins:
@@ -75,7 +78,7 @@ Plug 'https://github.com/preservim/nerdcommenter.git'
 
 Plug 'https://github.com/itchyny/lightline.vim.git'
 
-Plug 'https://github.com/dracula/vim.git'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 
@@ -88,5 +91,5 @@ call plug#end()
 
 "COLORSCHEME:
 " {{{
-colorscheme dracula
+colorscheme nord
 "}}}
