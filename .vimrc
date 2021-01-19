@@ -92,4 +92,8 @@ call plug#end()
 "COLORSCHEME:
 " {{{
 colorscheme nord
+
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 "}}}
