@@ -7,13 +7,17 @@ fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt autocd beep extendedglob nomatch notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
+# Do menu-driven completion.
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 autoload -Uz compinit
 compinit
@@ -23,7 +27,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 #KITTY autocomplete
 #{{{
-kitty + complete setup zsh | source /dev/stdin
+#kitty + complete setup zsh | source /dev/stdin
 #}}}
 
 #PLUGINS
@@ -45,6 +49,12 @@ alias ls='colorls --dark -A'
 #{{{
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+#}}}
+
+
+#PATH VAR
+#{{{
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 #}}}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
