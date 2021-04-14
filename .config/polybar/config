@@ -17,11 +17,8 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
 foreground = #000
 foreground-alt = #555
 primary = #9a75ff
@@ -29,44 +26,25 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/dabar]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 20
-;offset-x = 1%
-;offset-y = 1%
-;radius = 6.0
 fixed-center = true
-
 background = #000f0f0f
-
 foreground = ${colors.foreground}
-
 line-size = 3
 line-color = #f00
-
 border-size = 4
 border-color = #00000000
-
 padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=8;1
-;font-1 = Monoid Nerd Font:size=10:antialias=true:autohint=true
-
-modules-left = bspwm wlan
-modules-center = date
-modules-right = filesystem xbacklight alsa xkeyboard memory cpu temperature
-
+padding-right = 0
+font-0 = Hasklug Nerd Font:style=Bold:pixelsize=13;3
+modules-left = round-left bspwm round-right round-left wlan round-right
+modules-center = round-left date round-right
+modules-right = round-left filesystem xbacklight alsa round-right round-left xkeyboard memory cpu temperature round-right
 tray-position = right
 tray-padding = 2
-
-
 cursor-click = pointer
 cursor-scroll = ns-resize
-
 enable-ipc = true
 
 #----------------------------------------------------------------
@@ -82,19 +60,13 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.primary}
 format-background = #162841
-
 label-layout = "  %layout%"
-
 label-indicator-padding = 2
-label-indicator-margin = 1
+;label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
-
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
@@ -102,9 +74,7 @@ label-indicator-underline = ${colors.secondary}
 [module/filesystem]
 type = internal/fs
 interval = 25
-
 mount-0 = /
-
 label-mounted = "  %percentage_used%% "
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -116,73 +86,65 @@ label-mounted-foreground = #e32af4
 
 [module/bspwm]
 type = internal/bspwm
-
 label-focused = 
 label-focused-background = #162841
 label-focused-foreground = #eaf42a
 label-focused-padding = 2
-
-label-occupied = 
+label-occupied = 
 label-occupied-padding = 2
 label-occupied-foreground = #1856c8
 label-occupied-background = #162841
-
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
-label-empty = 
+label-empty = 
 label-empty-foreground = #f4712a
 label-empty-padding = 2
 label-empty-background = #162841
 
-
-label-separator = "  "
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
 
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #162841
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #162841
+
+#----------------------------------------------------------------
+#----------------------------------------------------------------
 
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-
-format-connected = " <ramp-signal> <label-connected> "
-;format-connected-underline = #9f78e1
+format-connected-prefix = "說 "
+format-connected-prefix-foreground = #7bf81b
+format-connected = <label-connected>
 label-connected = %essid%
 label-connected-foreground = ${colors.primary}
 format-connected-background = #162841
-
-format-disconnected = " 睊"
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = " "
-ramp-signal-1 = " "
-ramp-signal-2 = " "
-ramp-signal-3 = " "
-ramp-signal-4 = " "
-;ramp-signal-foreground = ${colors.foreground-alt}
-ramp-signal-foreground = #7bf81b
-
+format-disconnected-prefix = " 睊"
+format-disconnected = <label-disconnected>
+format-disconnected-background = #162841
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.primary}
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
 
 [module/xbacklight]
 type = internal/xbacklight
-
 format = " <label> <bar> "
-label = " "
+label = " 神"
 format-foreground = #dfdfdf
 format-background = #162841
-
 bar-width = 10
-bar-indicator = 
+bar-indicator = 
 bar-indicator-foreground = #dfdfdf
 bar-indicator-font = 2
 bar-fill = ─
@@ -200,7 +162,6 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
 
@@ -211,10 +172,8 @@ format-foreground = ${colors.primary}
 format-background = #162841
 label = " %percentage:2%% "
 
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
 
 [module/memory]
 type = internal/memory
@@ -223,45 +182,31 @@ format-foreground = ${colors.primary}
 format-background = #162841
 label = "  %percentage_used%% "
 
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
 
 [module/date]
 type = internal/date
 interval = 5
-
-date = "  %A, %b %d %Y"
-;date-alt = "  %Y-%m-%d"
-
-time = "  %I:%M %p "
-
+date = "  %A, %b %d %Y"
+time = "  %I:%M %p "
 format-foreground = ${colors.primary}
 format-background = #162841
-
-
 label = %date% %time%
 
-
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
-
 
 [module/alsa]
 type = internal/alsa
-
 format-volume = "<label-volume> <bar-volume> "
 format-volume-background = #162841
-label-volume = " 奔"
+label-volume = 蓼
 label-volume-foreground = #ffffff
-
-format-muted-prefix = " ﱝ "
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-prefix = 遼
+format-muted-foreground = ${colors.primary}
+format-muted-background = #162841
 label-muted = " muted"
-
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
@@ -271,7 +216,7 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f84fbf
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = 
+bar-volume-indicator = 
 bar-volume-indicator-foreground = #ffffff
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
@@ -280,34 +225,27 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
-
 format = <ramp> <label>
-format-foreground = ${colors.primary}
 format-background = #162841
 format-warn = <ramp> <label-warn>
 format-warn-underline = #f50a4d
 format-warn-background = #ffffff
-
-label = " %temperature-c% "
-label-warn = " %temperature-c% "
+label = %temperature-c%
+label-foreground = ${colors.primary}
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
-
-
+ramp-0 =  
+ramp-1 = 
+ramp-2 =  
+ramp-foreground = ${colors.primary}
+ramp-warn-foreground = ${colors.secondary}
 
 #----------------------------------------------------------------
 #----------------------------------------------------------------
@@ -320,10 +258,8 @@ screenchange-reload = true
 ;compositing-border = over
 ;pseudo-transparency = false
 
-
 #----------------------------------------------------------------
 #----------------------------------------------------------------
-
 
 [global/wm]
 margin-top = 0
