@@ -1,0 +1,82 @@
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-refresh-contents)
+(package-initialize)
+#+end_src
+
+#+begin_src emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(setq use-package-always-ensure t)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package rainbow-mode
+  :config
+  (setq rainbow-x-colors nil)
+  (add-hook 'prog-mode-hook 'rainbow-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package eglot
+  :commands eglot
+  :config
+  (add-to-list 'eglot-server-programs '(elm-mode . ("elm-language-server" "--stdio"))))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package panda-theme
+  :ensure t
+  :config
+  (load-theme 'panda t))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :config
+  (add-hook 'after-init-hook 'global-flycheck-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package yasnippet
+    :config
+    (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
+    (yas-global-mode 1))
+(use-package yasnippet-snippets)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package which-key
+  :config
+  (add-hook 'after-init-hook 'which-key-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package iedit)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package web-mode
+   :mode ("\\.html\\'")
+   :config
+   (setq web-mode-enable-current-element-highlight t))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package smartparens
+  :config
+  (add-hook 'prog-mode-hook 'smartparens-mode))
+#+end_src
