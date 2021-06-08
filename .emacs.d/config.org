@@ -32,10 +32,10 @@
 #+end_src
 
 #+begin_src emacs-lisp
-(use-package panda-theme
+(use-package atom-one-dark-theme
   :ensure t
-  :config
-  (load-theme 'panda t))
+  :init
+  (load-theme 'atom-one-dark t))
 #+end_src
 
 #+begin_src emacs-lisp
@@ -135,4 +135,21 @@
 				(bookmarks . "book"))))
 
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+#+end_src
+
+#+begin_src emacs-lisp
+(delete-selection-mode t)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+;; zoom in/out like we do everywhere else.
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
