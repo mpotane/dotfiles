@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /etc
 rm hosts
-wget https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
+wget https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
 sed -i '0,/127.0.0.1 local/!b;//a127.0.1.1 p0txky-x540up' hosts
