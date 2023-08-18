@@ -18,6 +18,7 @@ local sources = {
   -- cpp
   b.formatting.clang_format,
 
+  -- eslint
   b.code_actions.eslint_d,
 }
 

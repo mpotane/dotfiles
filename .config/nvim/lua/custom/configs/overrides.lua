@@ -21,6 +21,10 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  autotag = {
+    enable = true,
+    enable_rename = true,
+  },
 }
 
 M.mason = {
@@ -48,6 +52,11 @@ M.mason = {
 M.nvimtree = {
   git = {
     enable = true,
+    ignore = false,
+  },
+
+  view = {
+    side = "right",
   },
 
   renderer = {

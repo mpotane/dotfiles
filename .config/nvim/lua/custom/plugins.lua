@@ -30,6 +30,9 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    },
     opts = overrides.treesitter,
   },
 
@@ -74,6 +77,14 @@ local plugins = {
       user_default_options = {
         tailwind = true,
         names = false,
+      },
+    },
+  },
+  {
+    "NvChad/nvterm",
+    opts = {
+      terminals = {
+        shell = "fish",
       },
     },
   },
