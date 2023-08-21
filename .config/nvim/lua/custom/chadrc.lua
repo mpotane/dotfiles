@@ -8,6 +8,13 @@ M.ui = {
   theme = "onedark",
   theme_toggle = { "onedark", "one_light" },
 
+  tabufline = {
+    overriden_modules = function(modules)
+      modules[#modules + 1] = modules[1]
+      table.remove(modules, 1)
+    end,
+  },
+
   hl_override = highlights.override,
   hl_add = highlights.add,
 }

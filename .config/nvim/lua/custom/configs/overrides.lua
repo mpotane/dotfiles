@@ -11,6 +11,7 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
+    "prisma",
     "c",
     "markdown",
     "markdown_inline",
